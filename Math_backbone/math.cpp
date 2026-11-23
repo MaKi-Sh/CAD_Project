@@ -1,7 +1,7 @@
 #include <cmath>
 #include <optional>
 
-constexpr double LINEAR_TOL = 1e-15; // distances, in mm
+constexpr double LINEAR_TOL = 1e-6; // distances, in mm
 
 struct Vec2 {
     double x, y;
@@ -82,7 +82,7 @@ inline std::optional<Vec2> normalized(const Vec2 &v) {
     if (len < LINEAR_TOL) return std::nullopt;
     return v / len;
 }
-inline std::optional<Vec2> normalized(const Vec3 &v) {
+inline std::optional<Vec3> normalized(const Vec3 &v) {
     double len = length(v);
     if (len < LINEAR_TOL) return std::nullopt;
     return v / len;
